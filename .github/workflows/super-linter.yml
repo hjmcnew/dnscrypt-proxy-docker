@@ -6,6 +6,10 @@
 # https://github.com/github/super-linter
 name: Lint Code Base
 
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   push:
     branches: [ "main" ]
