@@ -2,7 +2,7 @@
 FROM alpine:3.21 AS builder
 
 # Create a non-root user to run the application
-RUN groupadd -r dnscrypt && useradd -r -g dnscrypt dnscrypt
+RUN addgroup -S dnscrypt && adduser -S -G dnscrypt dnscrypt
 
 # Set environment variables in one layer
 ENV DEBIAN_FRONTEND=noninteractive \
