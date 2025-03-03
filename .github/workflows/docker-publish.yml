@@ -6,14 +6,20 @@ name: Docker
 # separate terms of service, privacy policy, and support
 # documentation.
 
+permissions: read-all
+
 on:
   schedule:
-    - cron: '30 20 * * *'
+    # trunk-ignore(yamllint/quoted-strings)
+    - cron: "30 20 * * *"
   push:
+    # trunk-ignore(yamllint/quoted-strings)
     branches: ["main"]
     # Publish semver tags as releases.
-    tags: ['v*.*.*']
+    # trunk-ignore(yamllint/quoted-strings)
+    tags: ["v*.*.*"]
   pull_request:
+    # trunk-ignore(yamllint/quoted-strings)
     branches: ["main"]
 
 env:
@@ -22,10 +28,8 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -44,7 +48,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a #v3.8.1
         with:
-          cosign-release: 'v2.2.4'
+          # trunk-ignore(yamllint/quoted-strings)
+          cosign-release: "v2.2.4"
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache

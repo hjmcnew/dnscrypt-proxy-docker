@@ -13,9 +13,11 @@ permissions:
 
 on:
   push:
-    branches: [ "main" ]
+    # trunk-ignore(yamllint/quoted-strings)
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    # trunk-ignore(yamllint/quoted-strings)
+    branches: ["main"]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
@@ -30,6 +32,7 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
+          # trunk-ignore(yamllint/quoted-strings)
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YAML_CONFIG_FILE: .yaml-lint.yml
