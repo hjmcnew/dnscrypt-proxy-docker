@@ -45,5 +45,3 @@ docker-compose up -d
 ## Related Project
 
 For more information about dnscrypt-proxy, visit the [upstream project](https://github.com/DNSCrypt/dnscrypt-proxy) on GitHub.
-
-Test change too.
