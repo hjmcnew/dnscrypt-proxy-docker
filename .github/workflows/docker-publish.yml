@@ -10,11 +10,11 @@ permissions: read-all
 
 on:
   schedule:
-    - cron: '30 20 * * *'
+    - cron: "30 20 * * *"
   push:
     branches: ["main"]
     # Publish semver tags as releases.
-    tags: ['v*.*.*']
+    tags: ["v*.*.*"]
   pull_request:
     branches: ["main"]
 
@@ -24,10 +24,8 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -46,7 +44,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a #v3.8.1
         with:
-          cosign-release: 'v2.2.4'
+          cosign-release: "v2.2.4"
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
