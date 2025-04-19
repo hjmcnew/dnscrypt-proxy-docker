@@ -3,7 +3,7 @@ name: KICS
 
 permissions: read-all
 
-on: 
+on:
   push:
     branches: ["main"]
   pull_request:
