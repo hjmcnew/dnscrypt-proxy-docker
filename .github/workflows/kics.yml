@@ -1,0 +1,39 @@
+---
+name: KICS
+
+permissions: read-all
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+# Steps represent a sequence of tasks that will be executed as part of the job
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Mkdir results-dir
+        # make sure results dir is created
+        run: mkdir -p results-dir
+      # Scan Iac with kics
+      - name: run kics Scan
+        uses: checkmarx/kics-github-action@09100f0152c975eb238c67030f9fd1418acb3666
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: "."
+          ignore_on_exit: results
+          enable_comments: true
+          output_path: results-dir
+          output_formats: "json,sarif" # Display the results in json format
+      - name: Show results
+        run: |
+          cat results-dir/results.sarif
+          cat results-dir/results.json
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@45775bd8235c68ba998cffa5171334d58593da47
+        with:
+          sarif_file: results-dir/results.sarif
