@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Update and install in a single RUN instruction to reduce layers
 # Pin specific versions for better reproducibility
 RUN apk add --no-cache \
-    dnscrypt-proxy=2.1.5-r9 \
+    dnscrypt-proxy=2.1.5-r11 \
     ca-certificates=20241121-r1 \
     tzdata=2025b-r0 \
     netcat-openbsd=1.226.1.1-r0
