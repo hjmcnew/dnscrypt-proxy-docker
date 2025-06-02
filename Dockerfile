@@ -1,5 +1,5 @@
 # Use a specific version instead of latest for reproducible builds
-FROM alpine:3.21 AS builder
+FROM alpine:3.22 AS builder
 
 # Create a non-root user to run the application
 RUN addgroup -S dnscrypt && adduser -S -G dnscrypt dnscrypt
