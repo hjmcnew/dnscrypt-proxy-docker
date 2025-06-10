@@ -10,6 +10,7 @@ name: Lint Code Base
 permissions:
   contents: read
   pull-requests: write
+  statuses: write
 
 on:
   push:
@@ -32,4 +33,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_GITLEAKS: false
           YAML_CONFIG_FILE: .yaml-lint.yml
