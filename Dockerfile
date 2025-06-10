@@ -1,5 +1,5 @@
 # Use a specific version instead of latest for reproducible builds
-FROM alpine:3.21 AS builder
+FROM alpine:3.22 AS builder
 
 # Create a non-root user to run the application
 RUN addgroup -S dnscrypt && adduser -S -G dnscrypt dnscrypt
@@ -11,10 +11,10 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Update and install in a single RUN instruction to reduce layers
 # Pin specific versions for better reproducibility
 RUN apk add --no-cache \
-    dnscrypt-proxy=2.1.5-r11 \
-    ca-certificates=20241121-r1 \
+    dnscrypt-proxy=2.1.12-r0 \
+    ca-certificates=20241121-r2 \
     tzdata=2025b-r0 \
-    netcat-openbsd=1.226.1.1-r0
+    netcat-openbsd=1.229.1-r0
 
 # Create directory for custom configuration
 RUN mkdir -p /etc/dnscrypt-proxy && \
