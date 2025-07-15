@@ -24,7 +24,7 @@ jobs:
         run: mkdir -p results-dir
       # Scan Iac with kics
       - name: run kics Scan
-        uses: checkmarx/kics-github-action@c06a133a98c75c2f920014d688015a5fb18095a4
+        uses: checkmarx/kics-github-action@3545b741daf8fc816b081261995184aa12a247c0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: "."
