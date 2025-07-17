@@ -12,8 +12,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Pin specific versions for better reproducibility
 RUN apk add --no-cache \
     dnscrypt-proxy=2.1.12-r0 \
-    ca-certificates=20241121-r2 \
-    tzdata=2025b-r0 \
     netcat-openbsd=1.229.1-r0
 
 # Create directory for custom configuration
