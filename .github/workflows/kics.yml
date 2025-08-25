@@ -18,7 +18,7 @@ jobs:
       security-events: write
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Mkdir results-dir
         # make sure results dir is created
         run: mkdir -p results-dir
