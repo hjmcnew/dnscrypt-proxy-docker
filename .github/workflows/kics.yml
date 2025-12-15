@@ -18,13 +18,13 @@ jobs:
       security-events: write
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Mkdir results-dir
         # make sure results dir is created
         run: mkdir -p results-dir
       # Scan Iac with kics
       - name: run kics Scan
-        uses: checkmarx/kics-github-action@6b6fc1162a0f06704e4cca6e5f8e008ab20fabe5
+        uses: checkmarx/kics-github-action@e01759d524f8abd5bd650d3d5bd4b96d46ebbc1d
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: "."
@@ -37,6 +37,6 @@ jobs:
           cat results-dir/results.sarif
           cat results-dir/results.json
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@c1a2b73420f0c02efb863cc6921c531bc1a54f4f
+        uses: github/codeql-action/upload-sarif@4b675e451b3779918647db783e324bd9fd7f3932
         with:
           sarif_file: results-dir/results.sarif
