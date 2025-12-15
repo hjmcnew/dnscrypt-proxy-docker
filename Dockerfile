@@ -11,8 +11,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Update and install in a single RUN instruction to reduce layers
 # Pin specific versions for better reproducibility
 RUN apk add --no-cache \
-    dnscrypt-proxy=2.1.13-r2 \
-    netcat-openbsd=1.229.1-r0
+    dnscrypt-proxy=2.1.14-r3 \
+    netcat-openbsd=1.234.1-r0
 
 # Create directory for custom configuration
 RUN mkdir -p /etc/dnscrypt-proxy && \
