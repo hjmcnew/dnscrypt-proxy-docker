@@ -5,11 +5,23 @@
 
 version: 2
 updates:
-  - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "docker"
+    directory: "/"
     schedule:
       interval: "weekly"
+    assignees:
+      - "hjmcnew"
+    groups:
+      docker:
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    assignees:
+      - "hjmcnew"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
